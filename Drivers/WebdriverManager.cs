@@ -43,12 +43,13 @@ namespace ReqnrollFirstTestProject.Drivers
 
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {
-                // Linux CI options
-                options.AddArgument("--headless=new");
+                options.AddArgument("--headless=new"); // Required for newer Chrome
                 options.AddArgument("--disable-gpu");
                 options.AddArgument("--no-sandbox");
                 options.AddArgument("--disable-dev-shm-usage");
-                options.AddArgument("--remote-debugging-port=9222");
+                options.AddArgument("--window-size=1920,1080"); // Important
+                options.AddArgument("--single-process");         // Recommended
+                options.AddArgument("--disable-extensions");     // Optional
                 Console.WriteLine("🟢 Running in Linux with headless Chrome.");
             }
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
