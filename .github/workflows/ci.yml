@@ -1,4 +1,4 @@
-﻿name: CI Build and Test (Linux)
+﻿﻿name: CI Build and Test (Linux)
 
 on:
   push:
@@ -19,33 +19,29 @@ jobs:
         with:
           dotnet-version: '8.0.x'
 
-      - name: 🔧 Install Google Chrome
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y wget unzip
-          sudo apt-get install -y google-chrome-stable || {
-            wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-            echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
-            sudo apt-get update
-            sudo apt-get install -y google-chrome-stable
-          }
-          google-chrome --version
-
-      - name: 🔧 Install ChromeDriver
-        run: |
-          CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+' | head -1)
-          echo "Detected Chrome version: $CHROME_VERSION"
-          CHROMEDRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION")
-          wget -q -O chromedriver.zip "https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip"
-          unzip chromedriver.zip
-          sudo mv chromedriver /usr/local/bin/chromedriver
-          chromedriver --version
+      - name: 🔧 Install Chrome and ChromeDriver (Matching Versions)
+        run: sudo apt-get update
+             sudo apt-get install -y wget unzip gnupg
+             wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+             echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+             sudo apt-get update
+             sudo apt-get install -y google-chrome-stable
+             sudo apt-get install -y chromium-chromedriver
+             sudo ln -s /usr/lib/chromium-browser/chromedriver /usr/local/bin/chromedriver || true
+             google-chrome --version
+             chromedriver --version
 
       - name: 🧪 Restore Dependencies
         run: dotnet restore
 
       - name: 🛠️ Build Project
         run: dotnet build --no-restore --configuration Release
+
+      - name: 🔍 Debug Chrome Installation & Version
+        run: which google-chrome
+             google-chrome --version
+             which chromedriver
+             chromedriver --version
 
       - name: 🧪 Run Tests with Reqnroll + NUnit
         run: dotnet test --no-build --configuration Release --logger "trx;LogFileName=test-results.trx"
