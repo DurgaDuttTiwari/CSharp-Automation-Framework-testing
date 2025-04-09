@@ -1,25 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿# Ignore Visual Studio temp files, build results, and user-specific files
 
-namespace ReqnrollFirstTestProject
-{
-    public partial class _: Component
-    {    
-        public _()
-        {
-            InitializeComponent();
-        }
-
-        public _(IContainer container)
-        {
-            container.Add(this);
-
-            InitializeComponent();
-        }
-    }
-}
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.cache
+TestResults/
