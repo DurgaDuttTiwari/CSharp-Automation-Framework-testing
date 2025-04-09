@@ -1,4 +1,4 @@
-﻿﻿name: CI Build and Test (Linux)
+﻿name: CI Build and Test (Linux)
 
 on:
   push:
@@ -20,16 +20,17 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: 🔧 Install Chrome and ChromeDriver (Matching Versions)
-        run: sudo apt-get update
-            sudo apt-get install -y wget unzip gnupg
-            wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-            echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
-            sudo apt-get update
-            sudo apt-get install -y google-chrome-stable
-            sudo apt-get install -y chromium-chromedriver
-            sudo ln -s /usr/lib/chromium-browser/chromedriver /usr/local/bin/chromedriver || true
-            google-chrome --version
-            chromedriver --version
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wget unzip gnupg
+          wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+          echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+          sudo apt-get install -y chromium-chromedriver
+          sudo ln -s /usr/lib/chromium-browser/chromedriver /usr/local/bin/chromedriver || true
+          google-chrome --version
+          chromedriver --version
 
       - name: 🧪 Restore Dependencies
         run: dotnet restore
@@ -38,17 +39,20 @@ jobs:
         run: dotnet build --no-restore --configuration Release
 
       - name: 🔍 Debug Chrome Installation & Version
-        run: which google-chrome
-             google-chrome --version
-             which chromedriver
-             chromedriver --version
+        run: |
+          which google-chrome
+          google-chrome --version
+          which chromedriver
+          chromedriver --version
 
       - name: 🧪 Run Tests with Reqnroll + NUnit
         run: dotnet test --no-build --configuration Release --logger "trx;LogFileName=test-results.trx"
 
       - name: 📂 Debug Report Path
         if: always()
-        run: ls -R ReqnrollFirstTestProject/Reports/ || echo "No reports found"
+        run: |
+          echo "Listing report directory contents..."
+          ls -R ReqnrollFirstTestProject/Reports/ || echo "No reports found"
 
       - name: 📤 Upload TRX Test Results
         if: always()
