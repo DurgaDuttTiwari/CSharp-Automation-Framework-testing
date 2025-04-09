@@ -1,13 +1,13 @@
-﻿name: 🚀 CI - Build, Test & Report
+﻿name: CI Build and Test
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   pull_request:
-    branches: [main]
+    branches: [ main ]
 
 jobs:
-  build-and-test:
+  build:
     runs-on: windows-latest
 
     steps:
@@ -30,14 +30,14 @@ jobs:
 
       - name: 📤 Upload HTML Report (including screenshots)
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: HTML-Test-Report
           path: ReqnrollFirstTestProject/Reports/
 
       - name: 📤 Upload TRX Test Results
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: NUnit-TRX-Results
           path: '**/TestResults/*.trx'
