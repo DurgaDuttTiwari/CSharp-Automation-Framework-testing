@@ -26,7 +26,7 @@ namespace ReqnrollFirstTestProject.Selectors
 
         public IWebElement profileButton => driver.FindElement(By.XPath("/html[1]/body[1]/div[2]/div[1]/div[3]/a[3]/*[name()='svg'][2]"));
 
-        public IWebElement logout => driver.FindElement(By.PartialLinkText("Loghhhh"));
+        public IWebElement logout => driver.FindElement(By.PartialLinkText("Log"));
 
 
 

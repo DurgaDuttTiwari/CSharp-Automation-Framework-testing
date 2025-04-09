@@ -107,3 +107,4 @@ C:\Users\durga\source\repos\ReqnrollFirstTestProject\ReqnrollFirstTestProject\ob
 C:\Users\durga\source\repos\ReqnrollFirstTestProject\ReqnrollFirstTestProject\obj\Debug\net8.0\ReqnrollFirstTestProject.genruntimeconfig.cache
 C:\Users\durga\source\repos\ReqnrollFirstTestProject\ReqnrollFirstTestProject\obj\Debug\net8.0\ref\ReqnrollFirstTestProject.dll
 C:\Users\durga\source\repos\ReqnrollFirstTestProject\ReqnrollFirstTestProject\bin\Debug\net8.0\reqnroll.json
+C:\Users\durga\source\repos\ReqnrollFirstTestProject\ReqnrollFirstTestProject\obj\Debug\net8.0\ReqnrollFirstTestProject.sourcelink.json
