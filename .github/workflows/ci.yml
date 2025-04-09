@@ -1,4 +1,4 @@
-﻿name: CI Build and Test
+﻿name: CI Build and Test (Linux)
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: 🧾 Checkout Repository
@@ -28,16 +28,16 @@ jobs:
       - name: 🧪 Run Tests with Reqnroll + NUnit
         run: dotnet test --no-build --configuration Release --logger "trx;LogFileName=test-results.trx"
 
-      - name: 📤 Upload HTML Report (including screenshots)
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: HTML-Test-Report
-          path: '**/Reports/**'
-
       - name: 📤 Upload TRX Test Results
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: NUnit-TRX-Results
           path: '**/TestResults/*.trx'
+
+      - name: 📤 Upload HTML Report (including screenshots)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: HTML-Test-Report
+          path: '**/Reports/**'
