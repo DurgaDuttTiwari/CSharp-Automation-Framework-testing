@@ -1,36 +1,43 @@
-﻿name: CI-CD Automation Workflow
+﻿name: 🚀 CI - Build, Test & Report
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [main]
   pull_request:
-    branches: [ "main" ]
+    branches: [main]
 
 jobs:
   build-and-test:
     runs-on: windows-latest
 
     steps:
-    - name: 🔄 Checkout Code
-      uses: actions/checkout@v3
+      - name: 🧾 Checkout Repository
+        uses: actions/checkout@v3
 
-    - name: 🛠️ Setup .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: '8.0.x'
+      - name: 🧰 Setup .NET SDK
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.x'  # Match your local version
 
-    - name: 📦 Restore Dependencies
-      run: dotnet restore
+      - name: 🧪 Restore Dependencies
+        run: dotnet restore
 
-    - name: 🔨 Build Project
-      run: dotnet build --no-restore
+      - name: 🛠️ Build Project
+        run: dotnet build --no-restore --configuration Release
 
-    - name: 🧪 Run Tests
-      run: dotnet test --no-build --logger "trx"
+      - name: 🧪 Run Tests with Reqnroll + NUnit
+        run: dotnet test --no-build --configuration Release --logger "trx;LogFileName=test-results.trx"
 
-    - name: 📤 Upload Test Report
-      if: always()
-      uses: actions/upload-artifact@v3
-      with:
-        name: HTML-Test-Report
-        path: ReqnrollFirstTestProject/Reports/
+      - name: 📤 Upload HTML Report (including screenshots)
+        if: always()  # Always upload report even if tests fail
+        uses: actions/upload-artifact@v3.1.2
+        with:
+          name: HTML-Test-Report
+          path: ReqnrollFirstTestProject/Reports/
+
+      - name: 📤 Upload TRX Test Results
+        if: always()
+        uses: actions/upload-artifact@v3.1.2
+        with:
+          name: NUnit-TRX-Results
+          path: '**/TestResults/*.trx'
