@@ -10,6 +10,7 @@ C:\Users\durga\source\repos\ReqnrollFirstTestProject\ReqnrollFirstTestProject\bi
 C:\Users\durga\source\repos\ReqnrollFirstTestProject\ReqnrollFirstTestProject\bin\Debug\net8.0\nunit.engine.api.dll
 C:\Users\durga\source\repos\ReqnrollFirstTestProject\ReqnrollFirstTestProject\bin\Debug\net8.0\nunit.engine.core.dll
 C:\Users\durga\source\repos\ReqnrollFirstTestProject\ReqnrollFirstTestProject\bin\Debug\net8.0\testcentric.engine.metadata.dll
+C:\Users\durga\source\repos\ReqnrollFirstTestProject\ReqnrollFirstTestProject\bin\Debug\net8.0\reqnroll.json
 C:\Users\durga\source\repos\ReqnrollFirstTestProject\ReqnrollFirstTestProject\bin\Debug\net8.0\ReqnrollFirstTestProject.deps.json
 C:\Users\durga\source\repos\ReqnrollFirstTestProject\ReqnrollFirstTestProject\bin\Debug\net8.0\ReqnrollFirstTestProject.runtimeconfig.json
 C:\Users\durga\source\repos\ReqnrollFirstTestProject\ReqnrollFirstTestProject\bin\Debug\net8.0\ReqnrollFirstTestProject.dll
@@ -100,11 +101,10 @@ C:\Users\durga\source\repos\ReqnrollFirstTestProject\ReqnrollFirstTestProject\ob
 C:\Users\durga\source\repos\ReqnrollFirstTestProject\ReqnrollFirstTestProject\obj\Debug\net8.0\ReqnrollFirstTestProject.AssemblyInfoInputs.cache
 C:\Users\durga\source\repos\ReqnrollFirstTestProject\ReqnrollFirstTestProject\obj\Debug\net8.0\ReqnrollFirstTestProject.AssemblyInfo.cs
 C:\Users\durga\source\repos\ReqnrollFirstTestProject\ReqnrollFirstTestProject\obj\Debug\net8.0\ReqnrollFirstTestProject.csproj.CoreCompileInputs.cache
+C:\Users\durga\source\repos\ReqnrollFirstTestProject\ReqnrollFirstTestProject\obj\Debug\net8.0\ReqnrollFirstTestProject.sourcelink.json
 C:\Users\durga\source\repos\ReqnrollFirstTestProject\ReqnrollFirstTestProject\obj\Debug\net8.0\Reqnroll.0BDAB46E.Up2Date
 C:\Users\durga\source\repos\ReqnrollFirstTestProject\ReqnrollFirstTestProject\obj\Debug\net8.0\ReqnrollFirstTestProject.dll
 C:\Users\durga\source\repos\ReqnrollFirstTestProject\ReqnrollFirstTestProject\obj\Debug\net8.0\refint\ReqnrollFirstTestProject.dll
 C:\Users\durga\source\repos\ReqnrollFirstTestProject\ReqnrollFirstTestProject\obj\Debug\net8.0\ReqnrollFirstTestProject.pdb
 C:\Users\durga\source\repos\ReqnrollFirstTestProject\ReqnrollFirstTestProject\obj\Debug\net8.0\ReqnrollFirstTestProject.genruntimeconfig.cache
 C:\Users\durga\source\repos\ReqnrollFirstTestProject\ReqnrollFirstTestProject\obj\Debug\net8.0\ref\ReqnrollFirstTestProject.dll
-C:\Users\durga\source\repos\ReqnrollFirstTestProject\ReqnrollFirstTestProject\bin\Debug\net8.0\reqnroll.json
-C:\Users\durga\source\repos\ReqnrollFirstTestProject\ReqnrollFirstTestProject\obj\Debug\net8.0\ReqnrollFirstTestProject.sourcelink.json
