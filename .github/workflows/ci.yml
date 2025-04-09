@@ -1,29 +1,36 @@
-﻿name: CI Build and Test
+﻿name: CI-CD Automation Workflow
 
 on:
   push:
-    branches: [ main ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ main ]
+    branches: [ "main" ]
 
 jobs:
-  build:
+  build-and-test:
     runs-on: windows-latest
 
     steps:
-    - name: Checkout code
+    - name: 🔄 Checkout Code
       uses: actions/checkout@v3
 
-    - name: Setup .NET
+    - name: 🛠️ Setup .NET
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: '8.0.x'
 
-    - name: Restore dependencies
+    - name: 📦 Restore Dependencies
       run: dotnet restore
 
-    - name: Build
+    - name: 🔨 Build Project
       run: dotnet build --no-restore
 
-    - name: Run Tests
-      run: dotnet test --no-build --verbosity normal
+    - name: 🧪 Run Tests
+      run: dotnet test --no-build --logger "trx"
+
+    - name: 📤 Upload Test Report
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: HTML-Test-Report
+        path: ReqnrollFirstTestProject/Reports/
