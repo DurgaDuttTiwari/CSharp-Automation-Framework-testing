@@ -1,0 +1,13 @@
+﻿{
+  "reqnroll": {
+    "language": {
+      "feature": "en"
+    },
+    "plugins": [
+      {
+        "name": "Reqnroll.Plus.LivingDocPlugin",
+        "type": "Generator"
+      }
+    ]
+  }
+}

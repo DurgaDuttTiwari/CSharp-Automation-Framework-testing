@@ -1,0 +1,16 @@
+{
+  "name": "reqnrollfirsttestproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve-report": "http-server ./Reports -p 8080",
+    "start": "npm run serve-report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

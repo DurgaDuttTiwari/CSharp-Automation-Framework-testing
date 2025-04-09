@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <title>Test Automation Report</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            margin-top: 20px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #eee;
+        }
+        .passed {
+            color: green;
+            font-weight: bold;
+        }
+        .failed {
+            color: red;
+            font-weight: bold;
+        }
+        .toggle-btn {
+            cursor: pointer;
+            color: #007BFF;
+            text-decoration: underline;
+        }
+        .details {
+            display: none;
+            margin-top: 10px;
+            background-color: #fff3f3;
+            padding: 10px;
+            border-left: 5px solid #e74c3c;
+            font-family: Consolas, monospace;
+            font-size: 13px;
+            white-space: pre-wrap;
+        }
+        .screenshot {
+            max-width: 200px;
+            border: 1px solid #ccc;
+        }
+        .suggestion {
+            display: block;
+            margin-top: 10px;
+            color: #e67e22;
+        }
+    </style>
+    <script>
+        function toggleErrorDetails(id) {
+            var details = document.getElementById(id);
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+            } else {
+                details.style.display = 'block';
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Automation Test Report</h1>
+    <table>
+        <tr>
+            <th>Feature</th>
+            <th>Scenario</th>
+            <th>Status</th>
+            <th>Error Line</th>
+            <th>Error Details</th>
+            <th>Screenshot</th>
+        </tr>
+
+            <tr>
+                <td>Calculator</td>
+                <td>Add two numbers</td>
+                <td><span class='passed'>Passed</span></td>
+                <td>No error</td>
+                <td>
+                    —
+                </td>
+                <td>—</td>
+            </tr>
+
+            <tr>
+                <td>Login</td>
+                <td>This is login with valid credentials</td>
+                <td><span class='failed'>Failed</span></td>
+                <td>Line 12</td>
+                <td>
+                    <span class='toggle-btn' onclick="toggleErrorDetails('err_2a2f6a179e854e59a79a16a5726febd9')">View Details</span>
+                    <div class='details' id='err_2a2f6a179e854e59a79a16a5726febd9'><span class='toggle-btn' onclick="toggleErrorDetails('err_2a2f6a179e854e59a79a16a5726febd9')">View Details</span>
+        <div class='details' id='err_2a2f6a179e854e59a79a16a5726febd9'>
+<b>Message:</b> no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//input[@placeholder=&#39;email&#39;]&quot;}
+  (Session info: chrome=135.0.7049.42); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception<br>
+<b>Stack Trace:</b><br><code style='font-size: 0.9em; color: #222'>at ReqnrollFirstTestProject.Selectors.LoginSelectors.get_EnterEmail() in C:\Users\durga\source\repos\ReqnrollFirstTestProject\ReqnrollFirstTestProject\Selectors\LoginSelectors.cs:line 21<br>at ReqnrollFirstTestProject.StepDefinitions.LoginStepDefinitions.WhenIEnterUsernameAsAndPasswordAs(String admin, String password) in C:\Users\durga\source\repos\ReqnrollFirstTestProject\ReqnrollFirstTestProject\StepDefinitions\LoginStepDefinitions.cs:line 50<br>at ReqnrollFirstTestProject.Features.LoginFeature.ScenarioCleanupAsync()<br>at ReqnrollFirstTestProject.Features.LoginFeature.ThisIsLoginWithValidCredentials() in C:\Users\durga\source\repos\ReqnrollFirstTestProject\ReqnrollFirstTestProject\Features\Login.feature:line 12</code><br>
+<span class='suggestion'>ℹ️ Review the full error trace for debugging.</span></div></div>
+                </td>
+                <td><a href='Screenshots\This is login with valid credentials_20250409_214511.png' target='_blank'><img src='Screenshots\This is login with valid credentials_20250409_214511.png' class='screenshot'></a></td>
+            </tr>
+</table></body></html>
