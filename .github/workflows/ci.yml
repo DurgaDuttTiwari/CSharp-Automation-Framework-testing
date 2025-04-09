@@ -1,4 +1,4 @@
-﻿name: CI Build and Test (Linux)
+﻿﻿name: CI Build and Test (Linux)
 
 on:
   push:
