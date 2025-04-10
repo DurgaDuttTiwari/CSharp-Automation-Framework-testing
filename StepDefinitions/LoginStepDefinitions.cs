@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
@@ -19,6 +19,7 @@ namespace ReqnrollFirstTestProject.StepDefinitions
 
         public LoginStepDefinitions(ScenarioContext scenarioContext)
         {
+            Console.WriteLine("🔍 Trying to get WebDriverManager from ScenarioContext...");
             var driverManager = scenarioContext.Get<WebDriverManager>(nameof(WebDriverManager));
             driver = driverManager.Driver;
             loginSelectors = new LoginSelectors(driver);

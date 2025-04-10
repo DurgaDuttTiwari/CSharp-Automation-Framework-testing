@@ -22,9 +22,10 @@ namespace ReqnrollFirstTestProject.Drivers
         [BeforeTestRun]
         public static void BeforeTestRun() => HtmlReportHelper.InitializeReport();
 
-        [BeforeScenario]
+        [BeforeScenario(Order = 0)]
         public void setup()
         {
+            Console.WriteLine("🚀 Creating WebDriverManager...");
             _scenarioContext.Set(new WebDriverManager(), nameof(WebDriverManager));
         }
 
