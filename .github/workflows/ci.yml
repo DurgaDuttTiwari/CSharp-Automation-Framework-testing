@@ -40,17 +40,17 @@ jobs:
           google-chrome --version
           chromedriver --version
 
-      - name: 🧱 Install required dependencies for Chrome
-        run: |
-            sudo apt-get update
-            sudo apt-get install -y \
-            libnss3 \
-            libxss1 \
-            libasound2 \
-            libatk-bridge2.0-0 \
-            libgtk-3-0 \
-            libdrm2 \
-            libgbm1
+      # - name: 🧱 Install required dependencies for Chrome
+      #   run: |
+      #       sudo apt-get update
+      #       sudo apt-get install -y \
+      #       libnss3 \
+      #       libxss1 \
+      #       libasound2 \
+      #       libatk-bridge2.0-0 \
+      #       libgtk-3-0 \
+      #       libdrm2 \
+      #       libgbm1
 
       - name: 🧪 Restore Dependencies
         run: dotnet restore
