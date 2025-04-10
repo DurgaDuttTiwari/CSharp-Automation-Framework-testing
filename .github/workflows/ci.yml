@@ -19,39 +19,6 @@ jobs:
         with:
           dotnet-version: '8.0.x'
 
-      - name: 🔧 Install Google Chrome + ChromeDriver
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y wget unzip gnupg
-          wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-          echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
-          sudo apt-get update
-          sudo apt-get install -y google-chrome-stable
-          
-          CHROME_VERSION=$(google-chrome --version | grep -oP "\d+\.\d+\.\d+\.\d+")
-          DRIVER_VERSION=$(curl -s "https://googlechromelabs.github.io/chrome-for-testing/last-known-good-versions-with-downloads.json" | jq -r --arg ver "$CHROME_VERSION" '.channels.Stable.downloads.chromedriver[] | select(.platform == "linux64") | .url')
-          wget -O chromedriver.zip "$DRIVER_VERSION"
-          unzip chromedriver.zip
-          sudo mv chromedriver-linux64/chromedriver /usr/local/bin/
-          chmod +x /usr/local/bin/chromedriver
-
-      - name: 🔍 Confirm Chrome & ChromeDriver Installed
-        run: |
-          google-chrome --version
-          chromedriver --version
-
-      # - name: 🧱 Install required dependencies for Chrome
-      #   run: |
-      #       sudo apt-get update
-      #       sudo apt-get install -y \
-      #       libnss3 \
-      #       libxss1 \
-      #       libasound2 \
-      #       libatk-bridge2.0-0 \
-      #       libgtk-3-0 \
-      #       libdrm2 \
-      #       libgbm1
-
       - name: 🧪 Restore Dependencies
         run: dotnet restore
 
