@@ -40,6 +40,7 @@ namespace ReqnrollFirstTestProject.Drivers
         public WebDriverManager()
         {
             var options = new ChromeOptions();
+            options.BinaryLocation = "/usr/bin/google-chrome";
 
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {
