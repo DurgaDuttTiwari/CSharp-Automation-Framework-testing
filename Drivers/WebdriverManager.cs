@@ -66,6 +66,19 @@ namespace ReqnrollFirstTestProject.Drivers
 
             Driver = new ChromeDriver(options);
             Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+
+            // 🚀 Sanity check to ensure Chrome actually launched in CI
+            try
+            {
+                Console.WriteLine("🚀 Launching sanity URL...");
+                Driver.Navigate().GoToUrl("https://www.myget.org/F/reqnroll/api/v3/index.json");
+                Console.WriteLine("✅ Chrome launched and navigated successfully.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"❌ Chrome launch failed: {ex.Message}");
+                throw;
+            }
         }
 
         public void Dispose()
