@@ -1,5 +1,4 @@
-﻿.
-
+﻿
 # Reqnroll Automation Demo Framework
 
 This is a personal demo project built to explore and implement Behavior-Driven Development (BDD) using **Reqnroll** (SpecFlow alternative) with **C#**, **NUnit**, and **Selenium**. The project demonstrates a unified automation test framework structure with integrated feature-level HTML reporting and GitHub Actions CI/CD pipeline.
@@ -30,15 +29,18 @@ This is a personal demo project built to explore and implement Behavior-Driven D
 
 ## 📁 Folder Structure Overview
 
-├── .github/workflows/ # GitHub Actions CI pipeline
-├── Drivers/ # Browser Driver setup
-├── Features/ # Gherkin feature files
-├── Reports/ # Custom HTML Reports
-├── Selectors/ #Class containing page wise UI selectors 
-├── StepDefinitions/ # Step Definitions for feature files
-├── TestResults/ # Test results containing trx files and screenshot if falure occurs
-├── Utils/ # Utility classes and helpers for HTML report and others
-├── Hooks.cs/ # Reqnroll Hooks for setup/teardown
+```
+├── .github/workflows/   # GitHub Actions CI pipeline
+├── Drivers/             # Browser Driver setup
+├── Features/            # Gherkin feature files
+├── Reports/             # Custom HTML Reports
+├── Selectors/           # Class containing page wise UI selectors
+├── StepDefinitions/     # Step Definitions for feature files
+├── TestResults/         # Test results containing trx files and screenshot if failure occurs
+├── Utils/               # Utility classes and helpers for HTML report and others
+├── Hooks.cs             # Reqnroll Hooks for setup/teardown
+```
+
 
 
 
@@ -50,7 +52,7 @@ This is a personal demo project built to explore and implement Behavior-Driven D
 
 ```bash
 
-   git clone https://github.com/yourusername/Reqnroll-Automation-DemoFramework.git
+   git clone https://github.com/DurgaDuttTiwari/Reqnroll-Automation-DemoFramework.git
 
 ```
 
@@ -68,12 +70,9 @@ This is a personal demo project built to explore and implement Behavior-Driven D
 dotnet test
 🔄 CI/CD Pipeline (GitHub Actions)
 
-	Triggers on push and pull request events
-
+ 	Triggers on push and pull request events
 	Restores dependencies and builds the project
-
 	Executes test suite
-
 	Generates a clean HTML test report with result summary and screenshots
 
 
