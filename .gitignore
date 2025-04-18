@@ -10,7 +10,7 @@ obj/
 TestResults/
 
 # Ignore JSON config files with secrets
-UserDetails.json
+# UserDetails.json
 
 # Ignore other common build/log/output files
 *.log
