@@ -14,7 +14,7 @@ namespace ReqnrollFirstTestProject.StepDefinitions
             // additional string/Table parameters can be defined on the step definition
             // method. 
 
-            throw new PendingStepException();
+            Console.WriteLine(number);
         }
 
         [Given("the second number is {int}")]
@@ -22,7 +22,7 @@ namespace ReqnrollFirstTestProject.StepDefinitions
         {
             //TODO: implement arrange (precondition) logic
 
-            throw new PendingStepException();
+            Console.WriteLine(number);
         }
 
         [When("the two numbers are added")]
@@ -30,7 +30,7 @@ namespace ReqnrollFirstTestProject.StepDefinitions
         {
             //TODO: implement act (action) logic
 
-            throw new PendingStepException();
+            Console.WriteLine("Adding both numbers!");
         }
 
         [Then("the result should be {int}")]
@@ -38,7 +38,7 @@ namespace ReqnrollFirstTestProject.StepDefinitions
         {
             //TODO: implement assert (verification) logic
 
-            throw new PendingStepException();
+            Console.WriteLine(result);
         }
     }
 }

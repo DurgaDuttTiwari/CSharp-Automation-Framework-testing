@@ -12,6 +12,12 @@ TestResults/
 # Ignore JSON config files with secrets
 UserDetails.json
 
+# Ignore user-specific project files
+*.csproj.user
+
+# Ignore generated report artifacts (if needed)
+Reports/
+
 # Ignore other common build/log/output files
 *.log
 *.tmp
@@ -29,3 +35,4 @@ _ReSharper*/
 packages/
 
 *.dll
+/Reports/CustomReport.html
