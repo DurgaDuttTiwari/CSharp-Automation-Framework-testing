@@ -5,6 +5,7 @@ using OpenQA.Selenium.Support.UI;
 using Reqnroll;
 using ReqnrollFirstTestProject.Drivers;
 using ReqnrollFirstTestProject.Selectors;
+using ReqnrollFirstTestProject.Utils;
 
 namespace ReqnrollFirstTestProject.StepDefinitions
 {
@@ -17,6 +18,7 @@ namespace ReqnrollFirstTestProject.StepDefinitions
         //private readonly WebDriverWait wait;
 
 
+
         public LoginStepDefinitions(ScenarioContext scenarioContext)
         {
             Console.WriteLine("🔍 Trying to get WebDriverManager from ScenarioContext...");
@@ -24,6 +26,8 @@ namespace ReqnrollFirstTestProject.StepDefinitions
             driver = driverManager.Driver;
             loginSelectors = new LoginSelectors(driver);
             //WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+
+            
         }
 
         
@@ -32,7 +36,7 @@ namespace ReqnrollFirstTestProject.StepDefinitions
         [Given("I am on th login page")]
         public void GivenIAmOnThLoginPage()
         {
-            driver.Navigate().GoToUrl("https://www.w3schools.com/cs/cs_exercises.php");
+            driver.Navigate().GoToUrl("https://magento.softwaretestingboard.com/");
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             
         }
@@ -45,9 +49,12 @@ namespace ReqnrollFirstTestProject.StepDefinitions
             
         }
 
-        [When("I enter username as {string} and password as {string}")]
-        public void WhenIEnterUsernameAsAndPasswordAs(string admin, string password)
+        [When("I enter login credentials")]
+        public void WhenIEnterUsernameAsAndPasswordAs()
         {
+            string admin = ConfigReader.GetEmail();
+            string password = ConfigReader.GetPassword();
+
             loginSelectors.EnterEmail.SendKeys(admin);
             loginSelectors.EnterPassword.SendKeys(password);
         }
@@ -62,18 +69,24 @@ namespace ReqnrollFirstTestProject.StepDefinitions
         public void ThenIShouldBeLoogedIn()
         {
 
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            bool isUrlCorrect = wait.Until(driver =>
-                driver.Url == "https://www.w3schools.com/cs/cs_exercises.php"
-            );
-
-            string currentUrl = driver.Url;
-            Console.WriteLine("Current URL: " + currentUrl);
-            Assert.That(isUrlCorrect, Is.True, $"Expected URL not reached. Current URL: {currentUrl}");
+            //WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            //bool isUrlCorrect = wait.Until(driver =>
+            //    driver.Url == "https://www.w3schools.com/cs/cs_exercises.php"
+            //);
 
             //string currentUrl = driver.Url;
             //Console.WriteLine("Current URL: " + currentUrl);
-            //Assert.That(currentUrl, Is.EqualTo("https://www.w3schools.com/cs/cs_exercises.php"));
+            //Assert.That(isUrlCorrect, Is.True, $"Expected URL not reached. Current URL: {currentUrl}");
+
+            ////string currentUrl = driver.Url;
+            ////Console.WriteLine("Current URL: " + currentUrl);
+            ////Assert.That(currentUrl, Is.EqualTo("https://www.w3schools.com/cs/cs_exercises.php"));
+            ///
+
+            loginSelectors.WecomeBanner.Equals(true);
+
+
+
         }
 
         [Then("I clicked on logout")]

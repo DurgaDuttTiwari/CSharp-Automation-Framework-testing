@@ -107,7 +107,7 @@ this.ScenarioInitialize(scenarioInfo);
  await testRunner.WhenAsync("I click on the login link", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 9
- await testRunner.AndAsync("I enter username as \"pirorox107@lesotica.com\" and password as \"Test@1234\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+ await testRunner.AndAsync("I enter login credentials", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 10
  await testRunner.AndAsync("I clicked on login button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");

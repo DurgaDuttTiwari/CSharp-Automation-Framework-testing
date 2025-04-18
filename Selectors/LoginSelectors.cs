@@ -16,17 +16,19 @@ namespace ReqnrollFirstTestProject.Selectors
         
         }
 
-        public IWebElement loginlink => driver.FindElement(By.PartialLinkText("Log"));
+        public IWebElement loginlink => driver.FindElement(By.XPath("//header//a[contains(text(),'Sign In')]"));
 
-        public IWebElement EnterEmail => driver.FindElement(By.XPath("//input[@placeholder='email']"));
+        public IWebElement EnterEmail => driver.FindElement(By.XPath("//input[@title='Email']"));
 
-        public IWebElement EnterPassword => driver.FindElement(By.XPath("//input[@placeholder='password']"));
+        public IWebElement EnterPassword => driver.FindElement(By.XPath("//input[@title='Password']"));
 
-        public IWebElement LoginButton => driver.FindElement(By.XPath("//button[@type='submit']"));
+        public IWebElement LoginButton => driver.FindElement(By.XPath("//span[normalize-space()='Sign In']"));
 
-        public IWebElement profileButton => driver.FindElement(By.XPath("/html[1]/body[1]/div[2]/div[1]/div[3]/a[3]/*[name()='svg'][2]"));
+        public IWebElement WecomeBanner => driver.FindElement(By.XPath("//header//span[contains(@class,'logged-in')]"));
 
-        public IWebElement logout => driver.FindElement(By.PartialLinkText("Logsds"));
+        public IWebElement profileButton => driver.FindElement(By.XPath("//header//ul//button[@type='button']"));
+
+        public IWebElement logout => driver.FindElement(By.PartialLinkText("Sign Out"));
 
 
 
