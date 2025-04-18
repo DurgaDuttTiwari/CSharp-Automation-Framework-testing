@@ -27,3 +27,5 @@ _ReSharper*/
 
 # Ignore NuGet packages folder (optional)
 packages/
+
+*.dll
