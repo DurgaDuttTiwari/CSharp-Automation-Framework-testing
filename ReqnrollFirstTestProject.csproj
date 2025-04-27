@@ -23,13 +23,13 @@
     <PackageReference Include="nunit" Version="3.14.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
     <PackageReference Include="Selenium.WebDriver" Version="4.31.0" />
+    <PackageReference Include="UserDetails.json" ExcludeFromBuild="true" />
     <!-- <PackageReference Include="SpecFlow.Plus.LivingDocPlugin" Version="3.9.57" /> -->
     <!-- <PackageReference Include="Reqnroll.Tools.MsBuild.Generation" Version="2.2.1" /> -->
   </ItemGroup>
 
   <ItemGroup>
     <None Include=".github\workflows\ci.yml" />
-    <None Include="UserDetails.json" ExcludeFromBuild="true" />
   </ItemGroup>
 
 </Project>
