@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
-using System;
-using System.IO;
+
 
 namespace ReqnrollFirstTestProject.Utils
 {
@@ -10,16 +9,23 @@ namespace ReqnrollFirstTestProject.Utils
 
         static ConfigReader()
         {
-            var configPath = Path.Combine(Directory.GetCurrentDirectory(), "UserDetails.json");
+
+            // Calculate project root (go up from bin/Debug/net8.0/ to project folder)
+            var baseDirectory = AppContext.BaseDirectory;  // Better than Directory.GetCurrentDirectory()
+            var projectRoot = Path.GetFullPath(Path.Combine(baseDirectory, "..", "..", ".."));
+            var configPath = Path.Combine(projectRoot, "UserDetails.json");
+
 
             if (File.Exists(configPath))
             {
+                Console.WriteLine("UserDetails.json found.");
                 var json = File.ReadAllText(configPath);
                 config = JObject.Parse(json);
             }
             else
             {
-                config = null; // No local file, will use environment variables
+                Console.WriteLine("UserDetails.json NOT FOUND.");
+                config = null;
             }
         }
 
@@ -30,7 +36,7 @@ namespace ReqnrollFirstTestProject.Utils
             if (!string.IsNullOrEmpty(emailFromEnv))
                 return emailFromEnv;
 
-            // 2. Priority: Local config file
+            // 2. Priority: Local config file (for local testing)
             if (config?["email"] != null)
                 return config["email"]!.ToString();
 
