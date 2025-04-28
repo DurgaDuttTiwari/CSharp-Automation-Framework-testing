@@ -60,11 +60,18 @@ This is a personal demo project built to explore and implement Behavior-Driven D
 
 3. **Restore NuGet packages and build the project.**
 
-4. **Run tests via Test Explorer or with the CLI:**
+4. **Add a json file named as "UserDetails.json" which will contain your email and password from test website https://magento.softwaretestingboard.com/  or you can add your own test website by changing the url in the LoginStepDefinitions.cs file**
+
+5. **Your UserDetails.json look like this**
+```
+{
+  "email": "YourMailFromAboveTestWebsite",
+  "password": "YourPasswordFromAboveTestWebsite"
+}
+```
+6. **Run tests via Test Explorer or with the CLI:**
 ```bash
-
 	dotnet test
-
 ```
 
 dotnet test

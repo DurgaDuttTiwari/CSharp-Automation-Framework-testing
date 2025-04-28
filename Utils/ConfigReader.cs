@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Linq;
 
 
 namespace ReqnrollFirstTestProject.Utils
@@ -29,18 +29,9 @@ namespace ReqnrollFirstTestProject.Utils
             }
         }
 
-        public static string GetEmail()
+        public static string? GetEmail()
         {
-            // 1. Priority: Environment Variable (for GitHub Actions)
-            var emailFromEnv = Environment.GetEnvironmentVariable("TEST_EMAIL");
-            if (!string.IsNullOrEmpty(emailFromEnv))
-                return emailFromEnv;
-
-            // 2. Priority: Local config file (for local testing)
-            if (config?["email"] != null)
-                return config["email"]!.ToString();
-
-            throw new Exception("Email not found in environment variables or local config file.");
+            return config?["email"]?.ToString();
         }
 
         public static string GetPassword()
